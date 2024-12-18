@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn by Clicking Ads</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #74ebd5, #9face6);
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin: 20px 0;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .earnings {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 20px 0;
+        }
+
+        .ad-button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 20px;
+        }
+
+        .ad-button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .ad-button:hover {
+            background: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .ad-button:disabled {
+            background: #bdc3c7;
+            color: #fff;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .done-button {
+            background: #555;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            filter: brightness(0.5); /* Reduced brightness */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .done-button.active {
+            background: #27ae60;
+            cursor: pointer;
+            filter: brightness(1); /* Full brightness */
+        }
+    </style>
+</head>
+<body>
+    <h1>Earn Money by Clicking Ads</h1>
+    <p>Each ad click earns you USD 1.25!</p>
+	<p>එක ඇඩ් එකක් ක්ලීක් කර තත්පර 10ක් එම ඇඩ් එකේ සිටීම අනිවාර්යයි..එය අපී විශේෂයෙන් බලා මුදල් ගෙවිම සිදුකරයි</p>
+    <div class="earnings">Total Earnings: USD <span id="earnings">0.00</span></div>
+
+    <!-- Ad buttons -->
+    <div id="adButtonsContainer" class="ad-button-container">
+        <!-- JavaScript will generate 20 buttons dynamically -->
+    </div>
+
+    <!-- Done button -->
+    <button id="doneButton" class="done-button" disabled>Bank Transfer</button>
+	<br>
+
+    <footer>
+	<br>
+       Nsb Bank | People's Bank | BOC Bank | Sampath Bank | Commercial Bank
+	   
+	   <br>
+	   
+	   USD 1 = LKR 300/=
+                      	   
+    </footer>
+
+    <script>
+        const earningsPerClick = 1.25;
+        let totalEarnings = 0;
+        const totalButtons = 10;
+        let clickedButtons = 0;
+
+        // Initialize buttons and earnings
+        function initializeButtons() {
+            const adButtonsContainer = document.getElementById("adButtonsContainer");
+
+            for (let i = 1; i <= totalButtons; i++) {
+                const button = document.createElement("button");
+                button.className = "ad-button";
+                button.innerText = `Play Ad ${i}`;
+                button.dataset.buttonId = i;
+                
+                // Handle button click
+                button.onclick = () => handleClick(button);
+                
+                adButtonsContainer.appendChild(button);
+            }
+        }
+
+        // Handle button click
+        function handleClick(button) {
+            const buttonId = button.dataset.buttonId;
+
+            // Disable button after click
+            if (!button.disabled) {
+                button.disabled = true; 
+                clickedButtons++;
+
+                // Add earnings
+                totalEarnings += earningsPerClick;
+                document.getElementById("earnings").innerText = totalEarnings.toFixed(2);
+
+                // Check if all buttons are clicked
+                if (clickedButtons === totalButtons) {
+                    activateDoneButton();
+                }
+
+                // Redirect to ad page (replace 'adpage.html' with actual ad URL)
+                window.open('https://earningskingdeliberately.com/a85ymayfk1?key=737762d010275ca38ed02f0677b63448', '_blank');
+				 
+            }
+        }
+
+        // Activate the Done button
+        function activateDoneButton() {
+            const doneButton = document.getElementById("doneButton");
+            doneButton.disabled = false;
+            doneButton.classList.add("active");
+
+            // Add click event for Done button
+            doneButton.onclick = () => {
+                window.location.href = "https://earnmoneyecly.blogspot.com/2024/12/earn-by-clicking-ads-body-font-family_18.html";
+            };
+        }
+
+        // Initialize the page
+        window.onload = () => {
+            initializeButtons();
+        };
+    </script>
+</body>
+</html>
